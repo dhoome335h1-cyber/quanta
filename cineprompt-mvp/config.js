@@ -1,0 +1,1 @@
+window.CINEPROMPT_CONFIG={checkoutUrl:""};
