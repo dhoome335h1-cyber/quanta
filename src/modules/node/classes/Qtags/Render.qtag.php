@@ -6,7 +6,7 @@ namespace Quanta\Qtags;
  * Renders the full rendered content of a node, without any additional wrappers.
  *
  */
-class Render extends QTag
+class Render extends Qtag
 {
   /**
    * @return string

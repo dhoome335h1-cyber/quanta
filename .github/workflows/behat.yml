@@ -1,0 +1,27 @@
+name: Core acceptance tests
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  behat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          extensions: curl, gd, mbstring, dom, xml, xmlwriter
+          tools: composer:v2
+          coverage: none
+      - name: Install development dependencies
+        run: composer install --no-interaction --prefer-dist --no-scripts --no-progress
+      - name: Run acceptance tests
+        run: composer test:behat

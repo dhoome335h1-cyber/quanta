@@ -1,0 +1,7 @@
+default:
+  suites:
+    core:
+      paths: [ '%paths.base%/tests/behat/features' ]
+      contexts: [ QuantaContext ]
+  autoload:
+    '': '%paths.base%/tests/behat/bootstrap'
